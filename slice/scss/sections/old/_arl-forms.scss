@@ -1,0 +1,117 @@
+.section-arl-forms {
+  padding-top: 0;
+  margin: 40px 0 18px;
+
+  @media (min-width: $bp-small) {
+    margin: 88px 0 18px;
+  }
+
+  h2 {
+    color: $color-2;
+    text-align: center;
+    font-size: 30px;
+    margin: 0 0 20px;
+
+    @media (min-width: $bp-small) {
+      font-size: 40px;
+    }
+
+    @media (min-width: $bp-middle) {
+      font-size: 51px;
+      margin: 0 0 68px;
+    }
+  }
+
+  .section-inner {
+    background: $color-5;
+    border-radius: 0 20px;
+    padding: 40px 20px 20px 20px;
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.18);
+
+    @media (min-width: $bp-small) {
+      padding: 80px 70px 51px;
+      border-radius: 0 50px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 93px 154px 51px;
+    }
+
+    @media (min-width: $bp-large) {
+      padding: 93px 160px 51px;
+    }
+  }
+
+  .list {
+    margin-bottom: 7px;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      padding: 0;
+      line-height: 1.2;
+      min-height: 67px;
+      margin-bottom: 10px;
+
+      @media (min-width: $bp-small) {
+        margin: 0 20px 20px 0;
+        display: inline-block;
+        vertical-align: top;
+        width: 180px;
+
+        &:nth-child(3n+3) {
+          margin-right: 0;
+        }
+      }
+
+      @media (min-width: $bp-middle) {
+        margin: 0 20px 28px 0;
+        width: 204px;
+      }
+
+      a {
+        font-family: $Neutraface2Text-Demi;
+        color: $color-2;
+        @include transition(opacity .3s);
+        text-decoration: none;
+        padding-left: 60px;
+        position: relative;
+        display: inline-block;
+
+        &:before {
+          @include pseudo-block($left: 0, $top: -18px);
+          @include oneline-sprite-box($icons, icon-list);
+        }
+
+        &:hover {
+          opacity: .7;
+        }
+      }
+    }
+  }
+
+  .text {
+    font-family: $Neutraface2Text-Demi;
+    color: $color-2;
+    text-align: center;
+    line-height: 1.2;
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    a[href^="tel"] {
+      color: $color-2;
+    }
+
+    a[href^="mailto"] {
+      color: $color-2;
+      font-family: $Neutraface2Text-DemiItalic;
+    }
+  }
+}
+

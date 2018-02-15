@@ -1,0 +1,73 @@
+$icons: sprite-map('icons/*.png', $layout: smart);
+//$icons2: sprite-map("icons2x/*.png", $layout: smart);
+
+$experimental-support-for-svg: true;
+$experimental-support-for-opera: false;
+
+//color
+$color: #3b5667;
+$color-1: #158eb2;
+$color-2: #fff;
+$color-3: #395162;
+$color-4: #dddddd;
+$color-5: #f79228;
+$color-6: #d77813;
+$color-7: #d81212;
+$color-8: #3c5868;
+$color-9: #b9670f;
+$color-10: #4a6777;
+$color-11: #f18f26;
+$color-12: #3b5667;
+$color-14: #ce7310;
+$color-15: #273e4c;
+$color-16: #d8801f;
+$color-17: #df8019;
+$color-18: #284151;
+$color-19: #e4e4e4;
+$color-20: #f08f26;
+$color-21: #cbc2c2;
+$color-22: #eaeaea;
+$color-23: #f79327;
+$color-24: #000000;
+$color-25: #eeaf6e;
+$color-26: #f69327;
+$color-27: #d5d5d5;
+
+//fonts
+$HelveticaNeue: HelveticaNeue;
+$HelveticaNeue-Italic: HelveticaNeue-Italic;
+$HelveticaNeue-MediumItalic: HelveticaNeue-MediumItalic;
+$Neutraface2Text-Bold: Neutraface2Text-Bold;
+$Neutraface2Text-BoldItalic: Neutraface2Text-BoldItalic;
+$Neutraface2Text-Demi: Neutraface2Text-Demi;
+$Neutraface2Text-DemiItalic: Neutraface2Text-DemiItalic;
+$Neutraface2Text-BookItalic: Neutraface2Text-BookItalic;
+$Neutraface2Text-LightItalic: Neutraface2Text-LightItalic;
+$Neutraface2Text-Book: Neutraface2Text-Book;
+
+
+//grid vars
+//widths
+$width-xsmall: 90%;
+//xs < $bp-small
+$bp-small: 768px;
+$width-small: 730px;
+//$bp-middle > sm >= $bp-small
+$bp-middle: 992px;
+$width-middle: 970px;
+//$bp-large > md >= $bp-middle
+$bp-large: 1011px;
+$width-large: 981px;
+
+//offsets
+$container-padding-left: 0;
+$container-padding-right: 0;
+
+$container-fluid-padding-left: 0;
+$container-fluid-padding-right: 0;
+
+$row-margin-left: 0;
+$row-margin-right: 0;
+
+$col-padding-left: 0;
+$col-padding-right: 0;

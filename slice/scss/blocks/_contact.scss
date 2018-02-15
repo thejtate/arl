@@ -1,0 +1,160 @@
+.b-contact {
+  text-align: center;
+  font-size: 16px;
+
+  @media (min-width: $bp-middle) {
+    margin-bottom: 28px;
+    font-size: 18px;
+  }
+
+  h3 {
+    font-family: $Neutraface2Text-Bold;
+    color: $color-2;
+    margin: 0 0 21px;
+  }
+
+  .item {
+    margin-bottom: 30px;
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.18);
+    border-radius: 0px 20px;
+    background-color: $color-1;
+    position: relative;
+    padding: 30px 20px;
+
+    @media (min-width: $bp-small) {
+      display: inline-block;
+      border-radius: 0px 50px;
+      padding: 42px 20px 35px;
+      width: 312px;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: 385px;
+    }
+
+    &:first-child {
+      margin-bottom: 68px;
+
+      @media (min-width: $bp-small) {
+        margin: 0 20px 33px 0;
+      }
+
+      @media (min-width: $bp-middle) {
+        margin: 0 33px 33px 0;
+      }
+
+      @media (min-width: $bp-large) {
+        margin: 0 43px 33px 0;
+      }
+    }
+
+    &:last-child {
+      width: 100%;
+      padding: 20px 20px 6px;
+      line-height: 2;
+      margin-bottom: 0;
+
+      h3, .social {
+
+        @media (min-width: $bp-small) {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      h3 {
+        margin: 0 0 20px;
+
+        @media (min-width: $bp-small) {
+          margin: 0 32px;
+        }
+      }
+    }
+
+    a {
+      color: $color-2;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .social {
+
+    @media (min-width: $bp-small) {
+      margin: 0 38px;
+    }
+
+    .ss-icon {
+      color: $color-2;
+      font-size: 30px;
+      @include transition(color .3s);
+
+      @media (min-width: $bp-small) {
+        font-size: 40px;
+      }
+
+      @media (min-width: $bp-middle) {
+        font-size: 50px;
+      }
+
+      &:hover {
+        color: $color;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li, .social-item {
+      display: inline-block;
+      margin: 0 20px 0 0;
+
+      @media (min-width: $bp-small) {
+        margin: 0 50px 0 0;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    li {
+      padding: 0;
+      list-style: none;
+    }
+
+    .social-item {
+      position: relative;
+    }
+
+    a {
+      left: 0;
+      top: 0;
+      @include text-hide();
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+
+  .ico {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    @include translate(-50%, 0);
+  }
+
+  .text {
+
+    p {
+      margin: 0;
+    }
+  }
+}

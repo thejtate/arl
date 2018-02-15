@@ -1,0 +1,139 @@
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  background: $color-8;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $color-2;
+  font-family: $Neutraface2Text-Bold;
+  border-radius: 0 10px;
+  padding: 12px 21px;
+  border: 2px solid $color-8;
+  @include transition(background .3s, color .3s);
+  @include backface-visibility(hidden);
+
+  &:hover {
+    background: $color-2;
+    color: $color-8;
+  }
+
+  &.style-a {
+    background: $color-17;
+    border-color: $color-17;
+
+    &:hover {
+      background: $color-2;
+      color: $color-17;
+    }
+  }
+
+  &.style-b  {
+    padding: 12px 28px;
+  }
+
+  &.btn-back {
+    position: relative;
+    padding-left: 31px;
+    text-decoration: none;
+
+    &:before {
+      @include pseudo-block($left: 16px, $top: 50%);
+      @include translate(0, -50%);
+      width: 7px;
+      height: 7px;
+      border: 3px solid $color-20;
+      border-right: none;
+      border-top: none;
+      @include rotate(45deg);
+      @include transform-origin($origin-x: 100%, $origin-y: 50%);
+      margin-top: -1px;
+    }
+  }
+
+  &.btn-view {
+    font-size: 15px;
+    padding: 15px 11px 16px 106px;
+    position: relative;
+    text-decoration: none;
+    margin-bottom: 28px;
+
+    @media (min-width: $bp-small) {
+      font-size: 18px;
+      margin-right: 15px;
+      margin-bottom: 0;
+      padding: 15px 11px 16px 127px;
+      max-width: 369px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 29px 11px 29px 163px;
+      font-size: 24px;
+      max-width: 480px;
+    }
+
+    @media (min-width: $bp-large) {
+      padding: 29px 15px 29px 171px;
+      max-width: 493px;
+    }
+
+    &:hover {
+
+      .ico {
+        opacity: .7;
+      }
+    }
+  }
+}
+
+.btn-view-wrap {
+  margin: 40px 0 30px;
+
+  @media (min-width: $bp-small) {
+    margin: 27px 0 75px;
+  }
+
+  @media (min-width: $bp-middle) {
+    margin: 27px 0 90px;
+  }
+
+  .btn-view, .img {
+    display: block;
+
+    @media (min-width: $bp-small) {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .ico  {
+    position: absolute;
+    top: 50%;
+    left: 19px;
+    @include translate(0, -50%);
+    box-shadow: 0.7px 0.7px 4px rgba(0, 0, 0, 0.24);
+    @include backface-visibility(hidden);
+    @include transition(opacity .3s);
+    width: 75px;
+
+    @media (min-width: $bp-small) {
+      width: 100px;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: auto;
+    }
+  }
+
+  .img {
+    text-align: center;
+
+    @media (min-width: $bp-small) {
+      width: 94px;
+      text-align: left;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: auto;
+    }
+  }
+}

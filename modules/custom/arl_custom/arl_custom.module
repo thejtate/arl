@@ -1,0 +1,159 @@
+<?php
+/**
+ * @file Site custom functionality
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function arl_custom_menu() {
+  $items = array();
+
+  $items['admin/config/arl'] = array(
+    'title' => 'ARL Configuration',
+    'description' => 'Arl Configuration.',
+    'position' => 'right',
+    'weight' => -5,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer site configuration'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/config/arl/settings'] = array(
+    'title' => 'Arl Settings',
+    'description' => 'Arl Settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('arl_custom_admin_settings'),
+    'access arguments' => array('access to arl settings'),
+    'type' => MENU_NORMAL_ITEM,
+    'file path' => drupal_get_path('module', 'arl_custom') . '/includes',
+    'file' => 'arl_custom.admin.inc',
+  );
+
+  $items['page-not-found'] = array(
+    'title' => '',
+    'page callback' => 'arl_custom_page_not_found',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+function arl_custom_page_not_found() {
+  drupal_set_title('Page not found');
+  $cust_err = "";
+  $cust_err .=  "The requested page " . request_uri() . " could not be found";
+  return $cust_err;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function arl_custom_permission() {
+  return array(
+    'access to arl settings' => array(
+      'title' => t('Access to arl settings'),
+      'description' => t('Access to arl settings on site.'),
+    ),
+    'Show page not found' => array(
+      'title' => t('Access page not found page'),
+      'description' => t('Access page not found page'),
+    )
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function arl_custom_theme($existing, $type, $theme, $path) {
+  $theme_path = drupal_get_path('module', 'arl_custom');
+  return array(
+    'arl_custom__login_link' => array(
+      'variables' => array('title' => NULL, 'attributes' => NULL),
+    ),
+  );
+}
+
+/**
+ * Theme function.
+ *
+ * @param $variables
+ * @return string
+ */
+function theme_arl_custom__login_link($variables) {
+  $title = $variables['title'];
+  $url = variable_get('arl_cust_header_set_login_url', '');
+  $attributes = isset($variables['attributes']) ?
+    $variables['attributes'] : array();
+
+  if (!empty($title) && !empty($url)) {
+
+    $login_link = l($title, $url, array(
+        'attributes' => $attributes,
+      )
+    );
+
+    return $login_link;
+  }
+  return '';
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function arl_custom_block_info() {
+  $blocks = array();
+  $blocks['arl_custom_user_info'] = array(
+    'info' => t('Arl custom: User info'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function arl_custom_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'arl_custom_user_info':
+      $block['subject'] = t('');
+      $block['content'] = _arl_custom_user_info_block_content();
+      break;
+  }
+
+  return $block;
+}
+
+
+/**
+ * User info block.
+ *
+ * @return null|string
+ */
+function _arl_custom_user_info_block_content() {
+  $description = variable_get('arl_cust_header_set_login_text', '');
+  $button_text = variable_get('arl_cust_header_set_login_btn_text', '');
+  if ($description) {
+    $description = '<div class="desc">' . $description . '</div>';
+  }
+  $options = array(
+    'title' => $button_text,
+    'attributes' => array(
+      'class' => array('status', 'btn'),
+      'target' => '_blank',
+    ),
+  );
+  $login_url = theme('arl_custom__login_link', $options);
+  $output = $description . $login_url;
+  return $output;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function arl_custom_menu_alter(&$items) {
+  $items['user/register']['access callback'] = FALSE;
+  $items['user/password']['access callback'] = FALSE;
+  $items['user/reset/%/%/%']['access callback'] = FALSE;
+}

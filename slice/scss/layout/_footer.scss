@@ -1,0 +1,87 @@
+.site-footer {
+  color: $color-2;
+  text-align: center;
+  line-height: 1.2;
+  padding: 44px;
+  font-family: $Neutraface2Text-Book;
+
+  @media (min-width: $bp-small) {
+    padding: 77px 0 90px;
+  }
+
+  a {
+    color: $color-2;
+  }
+
+  .logo {
+    margin-bottom: 28px;
+
+    a {
+      @include transition(opacity .3s);
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  .text {
+    margin: 21px auto 0;
+    max-width: 477px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .address, .tel, .career {
+    position: relative;
+    margin: 0 7px 20px;
+    display: inline-block;
+    vertical-align: middle;
+
+    @media (min-width: $bp-middle) {
+      margin: 0 45px 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a[href^="tel"] {
+      font-family: $Neutraface2Text-Book;
+    }
+  }
+
+
+  .address, .tel {
+
+    &:before {
+      display: inline-block;
+      content: '';
+      margin-bottom: 7px;
+    }
+  }
+
+  .tel {
+
+    &:before {
+      margin-bottom: 10px;
+    }
+  }
+
+  .address:before {
+    @include oneline-sprite-box($icons, icon-footer-1)
+  }
+
+  .tel:before {
+    @include oneline-sprite-box($icons, icon-footer-2)
+  }
+
+  .career {
+
+    .ico {
+      color: $color-1;
+      font-size: 53px;
+      line-height: 1.1;
+    }
+  }
+}

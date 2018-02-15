@@ -1,0 +1,94 @@
+.b-industries {
+  line-height: 2;
+
+  @media (min-width: $bp-small) {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .title {
+    position: relative;
+    padding: 0 0 12px;
+    text-align: center;
+
+    @media (min-width: $bp-small) {
+      display: inline-block;
+      text-align: left;
+    }
+
+    &:after {
+      @include pseudo-block($bottom: 0, $left: 50%);
+      @include translate(-50%, 0);
+      width: $width-large;
+      border-bottom: 1px solid $color-3;
+    }
+
+    .ico {
+      position: relative;
+      display: block;
+      margin-bottom: 8px;
+
+      @media (min-width: $bp-small) {
+        height: 62px;
+        display: inline-block;
+        width: 100%;
+      }
+
+      img {
+
+        @media (min-width: $bp-small) {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  h3 {
+    font-size: 24px;
+    margin: 0;
+    display: inline-block;
+  }
+
+  .item {
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    @media (min-width: $bp-small) {
+      display: table-cell;
+      padding-right: 10px;
+      margin-bottom: 0;
+    }
+
+    &:nth-child(3n+3) {
+      padding-right: 0;
+
+      @media (min-width: $bp-middle) {
+        padding-left: 22px;
+      }
+    }
+  }
+
+  ul {
+    margin: 10px 0 0;
+    padding: 0;
+  }
+
+  li {
+    color: $color-2;
+    font-family: $Neutraface2Text-Demi;
+    padding: 0 0 0 8px;
+    margin: 0 0 5px;
+    list-style: none;
+    position: relative;
+
+    &:before {
+      @include pseudo-block($left: 0, $top: 13px);
+      border-radius: 50%;
+      border: 1px solid $color-2;
+    }
+  }
+}

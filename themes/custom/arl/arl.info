@@ -1,0 +1,34 @@
+name = ARL
+description = Site for ARL
+core = 7.x
+
+; REGIONS
+regions[header_menu] = Header Menu
+regions[search_form] = Search
+regions[header] = Header
+regions[views_area] =  Views Area
+regions[content_top] =  Content top
+regions[additional_nav] =  Additional Navigation
+regions[content] = Content
+regions[content_sidebar] = Content Sidebar
+regions[content_bottom] = Content bottom
+regions[footer_top] = Footer top
+regions[footer] = Footer
+regions[footer_bottom] = Footer bottom
+
+; CSS
+stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/custom.css
+
+; JS
+scripts[] = js/lib/device.min.js
+;scripts[] = js/lib/bootstrap-modal.min.js
+scripts[] = js/lib/select2.full.min.js
+scripts[] = js/lib/jquery.flexslider-min.js
+scripts[] = js/lib/jquery.columnizer.js
+scripts[] = js/lib/jquery.dotdotdot.min.js
+scripts[] = js/lib/scrollreveal.min.js
+scripts[] = js/lib/ScrollMagic.min.js
+scripts[] = js/lib/TweenMax.min.js
+scripts[] = js/lib/animation.gsap.min.js
+scripts[] = js/js.js

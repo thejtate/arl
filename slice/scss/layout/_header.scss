@@ -1,0 +1,663 @@
+.site-header {
+  color: $color-2;
+  box-shadow: 0px 0px 49px 0px rgba(0, 0, 0, 0.28);
+
+  .container {
+    height: 140px;
+    width: 100%;
+
+    @media (min-width: $bp-small) {
+      height: 130px;
+      width: $width-small;
+    }
+
+    @media (min-width: $bp-middle) {
+      height: 152px;
+      width: $width-middle;
+    }
+  }
+
+  .status, .logo, .btn-nav {
+    margin-top: -24px;
+
+    @media (min-width: $bp-small) {
+      margin-top: 0;
+    }
+  }
+
+  .nav, .status, .btn-search, .search-wrap {
+    @include transition(opacity .5s);
+
+    .desktop & {
+      @include transition(opacity .5s, visibility .5s);
+    }
+  }
+
+  &.search-open {
+
+    .nav, .status, .btn-search {
+
+      @media (min-width: $bp-small) {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .search-wrap {
+
+      @media (min-width: $bp-small) {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%, -50%) scale(0.6));
+    @include transition(opacity .3s);
+    @include backface-visibility(hidden);
+    margin-left: 13px;
+
+    @media (min-width: $bp-small) {
+      left: 0;
+      @include transform(translate(0, -50%) scale(0.6));
+      margin-left: 0;
+      -moz-transform-origin: 0 50% 0;
+      -ms-transform-origin: 0 50% 0;
+      -webkit-transform-origin: 0 50% 0;
+      transform-origin: 0 50% 0;
+    }
+
+    @media (min-width: $bp-middle) {
+      left: 16px;
+      @include translate(0, -50%);
+      -moz-transform-origin: 50% 50% 0;
+      -ms-transform-origin: 50% 50% 0;
+      -webkit-transform-origin: 50% 50% 0;
+      transform-origin: 50% 50% 0;
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  .nav-wrap {
+
+    @media (min-width: $bp-small) {
+      width: 625px;
+      float: right;
+      height: 100%;
+      position: relative;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: 792px;
+    }
+
+    &:before {
+      @include pseudo-block($left: 0, $top: 0, $bottom: 0);
+      height: 100%;
+      z-index: -1;
+      width: 100vw;
+      background: image_url('bg/bg-section-tabs.jpg');
+      display: none;
+
+      @media (min-width: $bp-small) {
+        display: block;
+        width: calc(100% + (100vw - #{$width-small}) / 2);
+      }
+
+      @media (min-width: $bp-large) {
+        width: calc(100% + (100vw - #{$width-large}) / 2);
+      }
+    }
+  }
+
+  .nav-inner {
+
+    @include clearfix();
+
+    @media (min-width: $bp-small) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    @media (min-width: $bp-middle) {
+      right: -15px;
+    }
+  }
+
+  .nav {
+
+    @media (min-width: $bp-small) {
+      float: left;
+      margin: 0;
+      //padding: 0 158px 0 0;
+      padding: 0 171px 0 0;
+    }
+
+    @media (min-width: $bp-middle) {
+      //padding: 0 222px 0 0;
+      padding: 0 240px 0 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    a.btn-nav {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      width: 43px;
+      height: 43px;
+      z-index: 9999;
+      @include translate(0, -50%);
+
+      @media (min-width: $bp-small) {
+        display: none;
+      }
+
+      &:after, &:before {
+        @include pseudo-block($right: 5px, $left: 5px);
+        border-radius: 5px;
+        background: $color-5;
+        height: 6px;
+        @include transition(background .3s);
+      }
+
+      &:before {
+        top: 13px
+      }
+
+      &:after {
+        bottom: 13px
+      }
+
+      &:hover {
+
+        &:after, &:before {
+          background: $color-2;
+        }
+      }
+    }
+
+    &.nav-active .menu-block-wrapper > .menu {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-block-wrapper > .menu {
+      margin: 0;
+      padding: 10px 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 100;
+      background: $color-8;
+      opacity: 0;
+      visibility: hidden;
+      @include transition(opacity .3s);
+
+      @media (min-width: $bp-small) {
+        padding: 0;
+        position: static;
+        width: auto;
+        z-index: auto;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        @include transition(opacity .3s);
+      }
+
+      & > li:nth-child(-n+2) .menu > li {
+
+        li {
+          vertical-align: bottom;
+        }
+
+        &:before, &:after {
+          display: none;
+        }
+      }
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      @media (min-width: $bp-small) {
+        margin: 0;
+        padding: 0;
+        float: left;
+      }
+
+      &:last-child {
+        margin: 0;
+
+        a:after {
+          display: none;
+        }
+      }
+
+      &.expanded {
+        & > a {
+
+          @media (min-width: $bp-small) {
+            //padding: 29px 28px 55px 9px;
+            padding: 29px 27px 55px 8px;
+          }
+
+          @media (min-width: $bp-middle) {
+            padding: 29px 30px 69px 15px;
+            //padding: 29px 33px 69px 19px;
+          }
+
+          &:before {
+
+            @media (min-width: $bp-small) {
+              display: block;
+            }
+          }
+        }
+      }
+
+      a {
+        font-family: $Neutraface2Text-DemiItalic;
+        display: block;
+        text-decoration: none;
+        color: $color-2;
+        @include backface-visibility(hidden);
+        @include transition(background .3s, color .3s);
+        position: relative;
+        line-height: 1;
+        font-size: 18px;
+        padding: 11px 22px;
+
+        @media (min-width: $bp-small) {
+          padding: 29px 11px 55px;
+          font-size: 15px;
+          border-radius: 0 10px 0 0;
+          display: inline-block;
+        }
+
+        @media (min-width: $bp-middle) {
+          font-size: 18px;
+          padding: 29px 21px 69px 19px;
+        }
+
+        &:before {
+          @include pseudo-block($top: 35px, $right: 15px);
+          width: 7px;
+          height: 7px;
+          border: 2px solid $color-2;
+          border-left: none;
+          border-top: none;
+          @include rotate(45deg);
+          transform-origin: 100% 50%;
+          display: none;
+
+          @media (min-width: $bp-middle) {
+            top: 37px;
+            right: 18px;
+          }
+        }
+
+        &:after {
+          @include pseudo-block($top: 7px, $right: -1px);
+          border-right: 1px solid $color-9;
+          height: 58px;
+          display: none;
+
+          @media (min-width: $bp-small) {
+            display: block;
+          }
+        }
+      }
+
+      ul {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      & > ul {
+
+        @media (min-width: $bp-small) {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          opacity: 0;
+          visibility: hidden;
+          z-index: 100;
+          @include backface-visibility(hidden);
+          @include transition(opacity .3s);
+          padding: 37px 16px 46px;
+          border-radius: 0 15px;
+          background: $color-8;
+        }
+
+        li {
+
+          @media (min-width: $bp-small) {
+            display: table-cell;
+            float: none;
+            vertical-align: middle;
+            padding: 0;
+            margin: 0;
+            border-left: 1px solid $color-10;
+            text-align: center;
+            position: relative;
+            height: 28px;
+          }
+
+          &:before {
+            @include pseudo-block($left: 0, $right: 0, $top: 0, $bottom: 0);
+            width: 100%;
+            height: 100%;
+            background: image_url('bg/bg-header-hover-a.png') 50% 50% no-repeat;
+            background-size: cover;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(opacity .3s);
+            display: none;
+
+            @media (min-width: $bp-small) {
+              display: block;
+            }
+
+            .desktop & {
+              @include transition(opacity .3s, visibility .3s);
+            }
+          }
+
+          &:hover {
+
+            & > a {
+              color: $color-2;
+              background: none;
+            }
+          }
+
+          li {
+
+            &:hover {
+
+              a {
+                color: $color-2;
+                background: none;
+              }
+
+              @media (min-width: $bp-small) {
+
+                &:before {
+                  opacity: 1;
+                  visibility: visible;
+                }
+              }
+            }
+          }
+
+          &:first-child {
+            border: none;
+          }
+
+          a:before, a:after {
+            display: none;
+          }
+
+          a {
+            font-size: 14px;
+            padding: 5px 25px 5px 40px;
+            display: block;
+            color: $color-25;
+
+            @media (min-width: $bp-small) {
+              padding: 0 10px;
+              color: $color-2;
+            }
+
+            @media (min-width: $bp-middle) {
+              padding: 0 20px;
+            }
+          }
+
+          .ico {
+            display: none;
+            margin-bottom: 10px;
+
+            @media (min-width: $bp-small) {
+              display: block;
+            }
+          }
+        }
+
+        & > li {
+
+          &:before, &:after {
+            @include translate(0, -50%);
+            z-index: -1;
+          }
+
+          &:before {
+            @include pseudo-block($left: 0, $top: 50%, $right: auto, $bottom: auto);
+            @include oneline-sprite-box($icons, bg-header-hover-b);
+            background-size: auto;
+          }
+
+          &:after {
+            @include pseudo-block($right: 0, $top: 50%);
+            @include oneline-sprite-box($icons, bg-header-hover-c);
+            @include translate(0, -50%);
+            opacity: 0;
+            visibility: hidden;
+            @include transition(opacity .3s);
+            display: none;
+
+            @media (min-width: $bp-small) {
+              display: block;
+            }
+
+            .desktop & {
+              @include transition(opacity .3s, visibility .3s);
+            }
+          }
+
+          &:hover {
+
+            &:before, &:after {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        }
+
+        .desktop & {
+          @include transition(opacity .3s, visibility .3s);
+        }
+      }
+
+      &.active-trail, &.active {
+        & > a {
+          background: $color-5;
+
+          @media (min-width: $bp-small) {
+            background: transparent;
+            text-decoration: underline;
+          }
+        }
+
+        .active-trail, .active {
+
+          & > a {
+            background: transparent;
+            color: $color-2;
+
+            @media (min-width: $bp-small) {
+              background: transparent;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &:hover {
+
+        & > a {
+          background: $color-5;
+
+          @media (min-width: $bp-small) {
+            background: $color-8;
+            text-decoration: none;
+          }
+        }
+      }
+
+      &:hover {
+
+        & > ul {
+
+          @media (min-width: $bp-small) {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+
+  .status {
+    position: absolute;
+    padding: 46px 7px 6px;
+    top: 50%;
+    left: 5%;
+    @include translate(0, -50%);
+    text-decoration: none;
+    font-size: 12px;
+    border: 1px solid $color-5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 109px;
+
+    @media (min-width: $bp-small) {
+      left: auto;
+      top: 10px;
+      right: 33px;
+      padding: 12px 14px 12px 46px;
+      @include transform(none);
+      border: none;
+      max-width: 145px;
+    }
+
+    @media (min-width: $bp-middle) {
+      font-size: 14px;
+      right: 72px;
+      padding: 12px 21px 12px 46px;
+      max-width: 175px;
+    }
+
+    &:before {
+      @include pseudo-block($top: 5px, $left: 50%);
+      @include translate(-50%, 0);
+      @include oneline-sprite-box($icons, login);
+
+      @media (min-width: $bp-small) {
+        top: 50%;
+        left: 10px;
+        @include translate(0, -50%);
+        margin-top: -3px;
+      }
+
+      @media (min-width: $bp-middle) {
+        left: 14px;
+      }
+    }
+  }
+
+  .btn-search {
+    position: absolute;
+    top: 35px;
+    right: 4px;
+    @include translate(0, -50%);
+    @include oneline-sprite-box($icons, icon-search);
+    display: none;
+
+    @media (min-width: $bp-small) {
+      display: block;
+    }
+
+    @media (min-width: $bp-middle) {
+      right: 33px;
+    }
+  }
+
+  .search-wrap {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 11px;
+    @include clearfix();
+
+    @media (min-width: $bp-small) {
+      left: auto;
+      bottom: auto;
+      right: 2px;
+      top: 15px;
+      opacity: 0;
+      visibility: hidden;
+
+      @media (min-width: $bp-middle) {
+        right: 32px;
+      }
+    }
+
+    .form-search input:not([type=submit]):not([type=checkbox]):not([type=radio]) {
+      @include input-placeholder(#fff);
+      color: #fff;
+
+      @media (min-width: $bp-small) {
+        @include input-placeholder(#aa5a04);
+        color: #aa5a04;
+      }
+    }
+
+    .form-search {
+      width: 100%;
+      margin: 0;
+
+      @media (min-width: $bp-small) {
+        margin: 0 60px 0 0;
+        width: 474px;
+        float: left;
+      }
+
+      @media (min-width: $bp-middle) {
+        width: 600px;
+        margin: 0 94px 0 0;
+      }
+    }
+
+    .btn-close {
+      @include oneline-sprite-box($icons, btn-close);
+      float: right;
+      display: none;
+      margin-top: 12px;
+
+      @media (min-width: $bp-small) {
+        display: block;
+      }
+    }
+  }
+}

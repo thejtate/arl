@@ -1,0 +1,93 @@
+.b-breadcrumbs {
+  margin-bottom: 20px;
+
+  @media (min-width: $bp-small) {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: $bp-middle) {
+    margin-bottom: 52px;
+  }
+
+  .breadcrumb {
+    margin: 0;
+    padding: 15px;
+    display: inline-block;
+    background: $color-19;
+    border-radius: 0 10px;
+    font-family: $Neutraface2Text-Demi;
+    line-height: 1.2;
+
+    @media (min-width: $bp-small) {
+      padding: 20px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $color;
+    @include transition(color .3s);
+
+    &:hover {
+      color: $color-24;
+    }
+  }
+
+  .delimiter {
+    display: none;
+  }
+
+  .inline {
+    padding-right: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+
+    &:before {
+      @include pseudo-block($right: 2px, $top: 50%);
+      @include translate(0, -50%);
+      width: 7px;
+      height: 7px;
+      border: 3px solid $color-20;
+      border-left: none;
+      border-bottom: none;
+      @include rotate(45deg);
+      @include transform-origin($origin-x: 100%, $origin-y: 50%);
+      margin-top: -1px;
+    }
+
+    &.last {
+      padding-right: 0;
+      margin-right: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .btn {
+    color: $color-2;
+    position: relative;
+    padding-left: 31px;
+    @include transition(background .3s, color .3s);
+
+    &:hover {
+      color: $color;
+    }
+
+    &:before {
+      @include pseudo-block($left: 16px, $top: 50%);
+      @include translate(0, -50%);
+      width: 7px;
+      height: 7px;
+      border: 3px solid $color-20;
+      border-right: none;
+      border-top: none;
+      @include rotate(45deg);
+      @include transform-origin($origin-x: 100%, $origin-y: 50%);
+      margin-top: -1px;
+    }
+  }
+}

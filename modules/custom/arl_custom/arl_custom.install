@@ -1,0 +1,15 @@
+<?php
+/**
+* @file
+* Install, update and uninstall functions for the custom module.
+*/
+/**
+ * Implements hook_uninstall().
+ */
+function arl_custom_uninstall() {
+
+  variable_del('arl_cust_header_set_login_url');
+  variable_del('arl_cust_header_set_login_text');
+}
+
+

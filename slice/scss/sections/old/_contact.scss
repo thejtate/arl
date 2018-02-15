@@ -1,0 +1,220 @@
+.section-contact {
+  padding-top: 0;
+  margin: 40px 0 18px;
+  font-family: $Neutraface2Text-Demi;
+  color: $color-2;
+  font-size: 16px;
+  line-height: 1.2;
+
+  @media (min-width: $bp-small) {
+    margin: 88px 0 18px;
+    font-size: 18px;
+  }
+
+  h2 {
+    color: $color-2;
+    text-align: center;
+    font-size: 30px;
+    margin: 0 0 20px;
+
+    @media (min-width: $bp-small) {
+      font-size: 40px;
+    }
+
+    @media (min-width: $bp-middle) {
+      font-size: 51px;
+      margin: 0 0 68px;
+    }
+  }
+
+  .section-inner {
+    background: $color-5;
+    border-radius: 0 20px;
+    padding: 40px;
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.18);
+    text-align: center;
+
+    @media (min-width: $bp-small) {
+      border-radius: 0 50px;
+      text-align: left;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 56px 80px 83px;
+    }
+  }
+
+  h3 {
+    font-family: $Neutraface2Text-Bold;
+    color: $color-2;
+    margin: 0 0 21px;
+  }
+
+  .item, .logo {
+    text-align: center;
+  }
+
+  .logo {
+    width: 200px;
+    margin: 0 auto 33px;
+
+    @media (min-width: $bp-small) {
+      text-align: right;
+      padding: 17px 25px 17px 0;
+      margin: 0;
+      border-right: 1px solid $color;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: 318px;
+    }
+  }
+
+  .logo-wrap {
+    margin-bottom: 93px;
+
+    .logo, .text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .text {
+
+      @media (min-width: $bp-small) {
+        width: 432px;
+        padding: 0 0 0 25px;
+      }
+
+      @media (min-width: $bp-middle) {
+        width: 480px;
+      }
+    }
+  }
+
+  .item {
+    margin-bottom: 30px;
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.18);
+    border-radius: 0px 20px;
+    background-color: $color-1;
+    position: relative;
+    padding: 30px 20px;
+
+    @media (min-width: $bp-small) {
+      display: inline-block;
+      border-radius: 0px 50px;
+      padding: 42px 20px 35px;
+      width: 312px;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: 385px;
+    }
+
+    &:first-child {
+      margin-bottom: 68px;
+
+      @media (min-width: $bp-small) {
+        margin: 0 20px 33px 0;
+      }
+
+      @media (min-width: $bp-middle) {
+        margin: 0 33px 33px 0;
+      }
+
+      @media (min-width: $bp-large) {
+        margin: 0 43px 33px 0;
+      }
+    }
+
+    &:last-child {
+      width: 100%;
+      padding: 20px 20px 6px;
+      line-height: 2;
+
+      h3, .social {
+
+        @media (min-width: $bp-small) {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      h3 {
+        margin: 0 0 20px;
+
+        @media (min-width: $bp-small) {
+          margin: 0 32px;
+        }
+      }
+    }
+
+    a {
+      color: $color-2;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .social {
+
+    @media (min-width: $bp-small) {
+      margin: 0 38px;
+    }
+
+    .ss-icon {
+      color: $color-2;
+      font-size: 30px;
+      @include transition(color .3s);
+
+      @media (min-width: $bp-small) {
+        font-size: 40px;
+      }
+
+      @media (min-width: $bp-middle) {
+        font-size: 50px;
+      }
+
+      &:hover {
+        color: $color;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 20px 0 0;
+      padding: 0;
+      list-style: none;
+
+      @media (min-width: $bp-small) {
+        margin: 0 50px 0 0;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .ico {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    @include translate(-50%, 0);
+  }
+
+  .text {
+    p {
+      margin: 0;
+    }
+  }
+}
+

@@ -1,0 +1,66 @@
+.outer-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.content-wrapper {
+  padding: 20px 0;
+  background: $color-2;
+
+  @media (min-width: $bp-small) {
+    padding: 40px 0;
+  }
+
+  @media (min-width: $bp-middle) {
+    padding: 61px 0 93px;
+  }
+
+  &.style-a {
+    background: transparent;
+
+    @media (min-width: $bp-middle) {
+      padding: 87px 0 13px;
+    }
+
+    .content-inner {
+      background: $color-5;
+      border-radius: 0 20px;
+      padding: 40px;
+      box-shadow: 0 6px 7px rgba(0, 0, 0, 0.18);
+      font-family: $Neutraface2Text-Demi;
+      color: $color-2;
+      line-height: 1.2;
+
+      @media (min-width: $bp-small) {
+        border-radius: 0 50px;
+        margin: 0;
+      }
+
+      @media (min-width: $bp-middle) {
+        padding: 56px 80px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.content-inner {
+
+  @media (min-width: $bp-small) {
+    padding: 0 39px 0 0;
+    margin-right: 200px;
+
+    .node-type-association &{
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  @media (min-width: $bp-middle) {
+    margin-right: 260px;
+
+    .node-type-association &{
+      margin: 0;
+    }
+  }
+}
